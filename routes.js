@@ -1,4 +1,11 @@
-export const rotas = {
+const req = require('express/lib/request');
+const json = require('express/lib/response');
+
+const db = require('./db');
+
+// Lembra de colocar nas rotas o header pra do Acess contorl pra evitar Cors
+
+module.exports = rotas = {
     configurarRotas: (app) => {
         app.get("/", (req, res) => {
             res.send("Hello world! \n\nRetornar aqui a página inicial para criar novas sinapses");
@@ -15,6 +22,11 @@ export const rotas = {
             console.log(req.params);
             let enderecoSinapse = req.params.enderecoSinapse;
             res.send(req.params);
+        });
+
+        app.get("/teste", async(req, res) => {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.send(await db.selectAllTable("SINAPSES"))
         });
 
         // app.use((req, res, next) => {

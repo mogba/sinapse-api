@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const port = 3080;
 
-import { rotas } from "./routes.js";
+const rotas = require("./routes.js");
 
 rotas.configurarRotas(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });
