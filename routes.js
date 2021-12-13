@@ -73,6 +73,15 @@ module.exports = rotas = {
             res.send(await db.insertSinapse(req.body))
         });
 
+        app.post("/delete/posts", async(req, res) => {
+            //req.header("Access-Control-Allow-Origin", "*");
+            //res.header("Access-Control-Allow-Origin", "*");
+            console.log("Recebendo a informação...");
+            console.log("O body é: " + req.body);
+            console.log("O body é: " + req.body.nome_sinapse);
+            res.send(await db.insertSinapse(req.body))
+        });
+
 
         // app.use((req, res, next) => {
         //     res.status(404).send("Sinto muito, mas essa sinapse ainda não existe :)");

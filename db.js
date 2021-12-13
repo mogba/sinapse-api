@@ -70,7 +70,7 @@ async function deletetPost(post) {
     const conn = await connect();
     const sql =
         `DELETE FROM POSTS WHERE ID_POST = ?;`
-    return await conn.query(sql, [post]);
+    return await conn.query(sql, [post.id_post]);
 }
 
 module.exports = { selectAllTable, connect, insertPost, deletetPost, insertSinapse, selectIdSinapse, insertComentario, selectByColumn }
