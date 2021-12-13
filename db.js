@@ -32,9 +32,9 @@ async function selectByColumn(table, column, value) {
     const [rows] = await conn.query(sql, [value]);
     return rows;
 }
-
-
 /* Funções de select - Fim */
+
+
 
 /* Funções de insert - Inicio */
 async function insertSinapse(sinapse) {

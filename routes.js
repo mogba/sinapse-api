@@ -31,9 +31,11 @@ module.exports = rotas = {
                 //res.send(console.log("Essa sinapse ainda não existe! Mas academos de criar ela pra você"));
                 res.json({ "Message": "Essa sinapse ainda não existe, mas criamos ela pra você :D", newSinapse });
             } else {
-                res.send(returnSinapse)
+                var returnPostsSinapse = await db.selectByColumn("POSTS", "ID_SINAPSE", returnSinapse.map(function(e) { return e.ID_SINAPSE }));
+                console.log(returnPostsSinapse);
+                res.send(returnPostsSinapse);
             }
-            console.log(returnSinapse);
+            //console.log(returnSinapse);
 
             //console.log("Entrou");
             //res.send({ "Teste": "Parse" })
