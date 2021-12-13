@@ -21,8 +21,6 @@ module.exports = rotas = {
             // nome inserido. Se não existir, vai criar a sinapse, e depois vai retornar 
             // os dados da sinapse criada ou que já existia
 
-
-
             const nomeSinapse = req.params.enderecoSinapse.toString();
             console.log(nomeSinapse.toString());
 
@@ -56,9 +54,15 @@ module.exports = rotas = {
             res.send(await db.selectAllTable("POSTS"))
         });
 
-        /*
+        app.post("/create/posts", async(req, res) => {
+            console.log("Recebendo a informação...");
+            console.log("O body é: " + req.body.titulo);
+            res.send(await db.insertPost(req.body))
+        });
+
+
         //Post de teste funcionando com o front-end
-        app.post("/teste", async(req, res) => {
+        app.post("/create/sinapse", async(req, res) => {
             //req.header("Access-Control-Allow-Origin", "*");
             //res.header("Access-Control-Allow-Origin", "*");
             console.log("Recebendo a informação...");
@@ -66,7 +70,7 @@ module.exports = rotas = {
             console.log("O body é: " + req.body.nome_sinapse);
             res.send(await db.insertSinapse(req.body))
         });
-        */
+
 
         // app.use((req, res, next) => {
         //     res.status(404).send("Sinto muito, mas essa sinapse ainda não existe :)");
