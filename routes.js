@@ -73,13 +73,12 @@ module.exports = rotas = {
             res.send(await db.insertSinapse(req.body))
         });
 
-        app.post("/delete/posts", async(req, res) => {
+        app.delete("/delete/posts", async(req, res) => {
             //req.header("Access-Control-Allow-Origin", "*");
             //res.header("Access-Control-Allow-Origin", "*");
             console.log("Recebendo a informação...");
-            console.log("O body é: " + req.body);
-            console.log("O body é: " + req.body.nome_sinapse);
-            res.send(await db.insertSinapse(req.body))
+            console.log("O body é: " + req.body.id_post);
+            res.send(await db.deletetPost(req.body))
         });
 
 
